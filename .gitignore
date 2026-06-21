@@ -1,0 +1,17 @@
+.DS_Store
+build/
+venv/
+__pycache__/
+*.onnx
+assets/
+archive/
+hybrid_engine_cv_test
+compile_commands.json
+.vscode/
+docs/
+.cache/
+benchmark_cpp
+hybrid_engine_test
+inference_engine
+*.bin
+onnxruntime-osx-arm64-1.19.2/

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package inference;
+
+// The high-performance inference service definition.
+service InferenceService {
+  // Synchronous prediction endpoint that blocks until the GPU/CPU finishes mathematical processing
+  rpc Predict (PredictRequest) returns (PredictResponse) {}
+}
+
+// The network request message containing exactly what the InferenceCore orchestrator needs
+message PredictRequest {
+  bytes image_data = 1; // Raw JPEG/PNG image binary exactly as passed from disk or web
+}
+
+// The standardized response message mapping closely to our engine's PredictionResult struct
+message PredictResponse {
+  bool success = 1;
+  string json_response = 2; // e.g. {"status": "success", "class_id": 499, "confidence": 0.992}
+}
